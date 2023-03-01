@@ -4,7 +4,7 @@ letterBank = ['a','o','A','O']
 possibilites = []
 
 def makePossibilities(currAns): #recursively make stuff
-    print("-------")
+    # print("-------")
     # print(usedIndices)
     # print(currAns)
 
@@ -14,7 +14,7 @@ def makePossibilities(currAns): #recursively make stuff
         
         continuedAns += letterBank[i]
 
-        print(continuedAns)
+        # print(continuedAns)
 
         if len(continuedAns) == 3:
             if continuedAns not in possibilites:
@@ -65,7 +65,7 @@ def writeLegend(dict):
     f.close()
 
 def main():
-    empty = []
+    
     answer = ""
     makePossibilities(answer)
     # print(possibilites)
