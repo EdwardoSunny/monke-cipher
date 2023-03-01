@@ -37,7 +37,7 @@ def createCipher():
             choice = random.choice(possibilites)
             used.append(choice)
 
-        retMonkeyCipher[ord(i)] = choice
+        retMonkeyCipher[chr(i)] = choice
 
     for i in range(97, 122):
         choice = random.choice(possibilites)
@@ -45,7 +45,7 @@ def createCipher():
             choice = random.choice(possibilites)
             used.append(choice)
 
-        retMonkeyCipher[ord(i)] = choice
+        retMonkeyCipher[chr(i)] = choice
 
     return retMonkeyCipher
 
@@ -61,7 +61,9 @@ def main():
     makePossibilities(answer)
     # print(possibilites)
     # print(len(possibilites))
-    print(createCipher)
+    # print(createCipher)
+    dict = createCipher()
+    print(dict)
 
 
 
