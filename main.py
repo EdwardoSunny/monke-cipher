@@ -19,7 +19,7 @@ def makePossibilities(currAns): #recursively make stuff
         if len(continuedAns) == 3:
             if continuedAns not in possibilites:
                 possibilites.append(continuedAns)
-                break
+                continue
         
         makePossibilities(continuedAns)
 
