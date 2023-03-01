@@ -3,25 +3,30 @@
 letterBank = ['a','o','A','O']
 possibilites = []
 
-def makePossibilities(usedIndices, currAns):
-    temp = usedIndices.copy()
-    continuedAns = currAns
+def makePossibilities(currAns): #recursively make stuff
+    print("-------")
+    # print(usedIndices)
+    # print(currAns)
 
     for i in range(0, len(letterBank)):
-        print("hi")
-        if i in temp:
-            continue
+        
+        continuedAns = currAns
+        
         continuedAns += letterBank[i]
-        temp.append(i)
+
+        print(continuedAns)
+
         if len(continuedAns) == 3:
-            possibilites.append(continuedAns)
-            break
-        makePossibilities(temp, continuedAns)
+            if continuedAns not in possibilites:
+                possibilites.append(continuedAns)
+                break
+        
+        makePossibilities(continuedAns)
 
 
 
 def createCipher():
-    # probably some recursion 
+    
     retMonkeyCipher = {}
 
 
@@ -37,8 +42,9 @@ def decodeMonkeyCipher(currLegend, message):
 def main():
     empty = []
     answer = ""
-    makePossibilities(empty, answer)
+    makePossibilities(answer)
     print(possibilites)
+    print(len(possibilites))
 
 
 
