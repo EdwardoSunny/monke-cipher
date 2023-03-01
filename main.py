@@ -33,17 +33,19 @@ def createCipher():
 
     for i in range(65, 91):
         choice = random.choice(possibilites)
-        while choice not in used:
+        while choice in used:
             choice = random.choice(possibilites)
-            used.append(choice)
+        
+        used.append(choice)
 
         retMonkeyCipher[chr(i)] = choice
 
-    for i in range(97, 122):
+    for i in range(97, 123):
         choice = random.choice(possibilites)
-        while choice not in used:
+        while choice in used:
             choice = random.choice(possibilites)
-            used.append(choice)
+        
+        used.append(choice)
 
         retMonkeyCipher[chr(i)] = choice
 
@@ -55,6 +57,13 @@ def decodeMonkeyCipher(currLegend, message):
 
     return decodedMessage
 
+def writeLegend(dict):
+    with open('legend.txt', 'w') as f:
+        for keys, values in dict.items():
+            f.write("[" + keys + "," + values + "]\n")
+    
+    f.close()
+
 def main():
     empty = []
     answer = ""
@@ -64,7 +73,7 @@ def main():
     # print(createCipher)
     dict = createCipher()
     print(dict)
-
+    writeLegend(dict)
 
 
 main()
