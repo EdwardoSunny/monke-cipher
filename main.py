@@ -1,4 +1,4 @@
-
+import random
 # 3 letter combination of o,a,A,O - make each letter unique and different
 letterBank = ['a','o','A','O']
 possibilites = []
@@ -26,10 +26,26 @@ def makePossibilities(currAns): #recursively make stuff
 
 
 def createCipher():
-    
+    used = []
+    # 65 - 90 is capitals (A-Z)
+    # 97 - 122 is lowercase (a-z)
     retMonkeyCipher = {}
 
+    for i in range(65, 91):
+        choice = random.choice(possibilites)
+        while choice not in used:
+            choice = random.choice(possibilites)
+            used.append(choice)
 
+        retMonkeyCipher[ord(i)] = choice
+
+    for i in range(97, 122):
+        choice = random.choice(possibilites)
+        while choice not in used:
+            choice = random.choice(possibilites)
+            used.append(choice)
+
+        retMonkeyCipher[ord(i)] = choice
 
     return retMonkeyCipher
 
@@ -43,8 +59,9 @@ def main():
     empty = []
     answer = ""
     makePossibilities(answer)
-    print(possibilites)
-    print(len(possibilites))
+    # print(possibilites)
+    # print(len(possibilites))
+    print(createCipher)
 
 
 
