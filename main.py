@@ -60,9 +60,24 @@ def decodeMonkeyCipher(currLegend, message):
 def writeLegend(dict):
     with open('legend.txt', 'w') as f:
         for keys, values in dict.items():
-            f.write("[" + keys + "," + values + "]\n")
+            f.write("" + keys + "," + values + "\n")
     
     f.close()
+
+def readLegend():
+    f = open('legend.txt', 'r')
+    
+
+
+def createCipherMessage(currLegend, message):
+    ret = ""
+
+    for i in message:
+        if i in currLegend.keys():
+            ret += currLegend[i]
+        else:
+            ret += i
+    return ret
 
 def main():
     
